@@ -15,6 +15,6 @@ user_input = st.text_input("Ask Your Question Here")
 if st.button("Submit"):
     with st.spinner("Generating response..."):
         response = client.models.generate_content(
-            model="gemini-2.0-flash", contents=user_input
+            model="gemini-2.5-flash", contents=user_input
         )    
     st.write(response.text)
