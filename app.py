@@ -4,9 +4,13 @@ from google import genai
 from dotenv import load_dotenv
 
 load_dotenv()
-my_key = os.getenv("gemini_api_key")
-client = genai.Client(api_key=my_key)
+my_key = st.secrets.get("gemini_api_key") or os.getenv("gemini_api_key")
 
+if my_key:
+    client = genai.Client(api_key=my_key)
+else:
+    st.error("🔑 API Key not found! Please add 'GEMINI_API_KEY' to Streamlit Secrets or your .env file.")
+    st.stop()
 
 st.title("Talk to Agent")
 st.write("This app demonstrates a conversational agent using Google Gemini. The agent can answer questions, provide information, and engage in a dialogue with the user.")

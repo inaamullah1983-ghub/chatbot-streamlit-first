@@ -12,3 +12,10 @@ __pycache__/
 
 # 4. VS Code settings (Personal preferences)
 .vscode/
+
+# 5. Clean up logs and temporary files
+dist/
+build/
+*.exe
+*.zip
+*.spec
